@@ -181,3 +181,16 @@ saved_queries:
       - name: order_metrics
         config:
           export_as: table
+
+
+exposures:
+  - name: orders_dashboard
+    label: Orders Dashboard
+    type: dashboard
+    maturity: medium
+    description: |
+      Downstream dashboard built on the `orders` mart.
+    depends_on:
+      - ref('orders')
+    owner:
+      name: Analytics Engineering
