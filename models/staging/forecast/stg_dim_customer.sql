@@ -1,0 +1,1 @@
+select * from {{ source('forecast', 'dim_customer') }}

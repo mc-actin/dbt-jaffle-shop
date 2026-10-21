@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: stg_dim_customer
+    description: Customer master data sourced from the Forecast system, with one row per customer account.
+    columns:
+      - name: customer_id
+        description: Business identifier assigned to the customer account in the source system.
+
+      - name: customer_name
+        description: Display name of the customer account used in reporting and commercial workflows.
+
+      - name: segment
+        description: Commercial segment used to group customers by market profile, such as Consumer or Corporate.
+
+      - name: industry
+        description: Industry classification of the customer account, used for sector-level analysis.
+
+      - name: account_tier
+        description: Commercial tier assigned to the account based on its size or strategic importance, such as SMB, Mid-Market, or Enterprise.
+
+      - name: loyalty_level
+        description: Loyalty program level currently assigned to the customer.
+
+      - name: sales_channel
+        description: Channel through which the customer account is managed or acquired, such as Direct Sales, Partner, or Reseller.
+
+      - name: primary_contact
+        description: Full name of the main contact associated with the customer account.
+
+      - name: contact_title
+        description: Job title or business role of the customer's primary contact.
+
+      - name: contact_email
+        description: Email address used to contact the customer's primary contact.
+
+      - name: country
+        description: Country associated with the customer's primary business or billing address.
+
+      - name: region
+        description: Broad geographic sales region assigned to the customer account.
+
+      - name: "State/Province"
+        description: State or province associated with the customer's primary business or billing address.
+
+      - name: city
+        description: City associated with the customer's primary business or billing address.
+
+      - name: postal_code
+        description: Postal code associated with the customer's address; stored as text to preserve formatting and leading zeros.
+
+      - name: preferred_currency
+        description: ISO currency code preferred by the customer for commercial transactions and reporting.
+
+      - name: preferred_language
+        description: Language preferred by the customer for communications and service interactions.
+
+      - name: payment_terms
+        description: Agreed payment schedule for the customer account, such as prepaid or a net payment period.
+
+      - name: credit_rating
+        description: Internal or source-provided assessment of the customer's creditworthiness.
+
+      - name: credit_limit
+        description: Maximum amount of credit authorized for the customer account, expressed in the preferred currency.
+
+      - name: onboarding_date
+        description: Date when the customer account was onboarded into the source system.
+
+      - name: active_flag
+        description: Current lifecycle status indicating whether the customer account is active.
+
+      - name: lifetime_sales
+        description: Cumulative sales amount attributed to the customer over the available history, expressed in the preferred currency.
+
+      - name: total_orders
+        description: Cumulative number of orders attributed to the customer over the available history.

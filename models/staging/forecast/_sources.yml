@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: forecast
+    database: forecast
+    schema: marts
+    tables:
+      - name: dim_customer
+      - name: forecast_checked

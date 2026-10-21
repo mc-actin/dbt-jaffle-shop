@@ -2,7 +2,8 @@ version: 2
 
 sources:
   - name: ecom
-    schema: raw
+    database: raw
+    schema: jaffle_shop
     description: E-commerce data for the Jaffle Shop
     tables:
       - name: customers
