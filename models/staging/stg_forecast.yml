@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_forecast
+    description: Monthly customer forecast records from the Forecast system, with one row per forecast version record.
+    columns:
+      - name: forecast_id
+        description: Unique identifier for the forecast record in the source system.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: Customer identifier, trimmed of surrounding whitespace; blank values are represented as null.
+
+      - name: customer_name
+        description: Customer name supplied with the forecast record.
+
+      - name: country
+        description: Country associated with the customer forecast.
+
+      - name: region
+        description: Geographic region associated with the customer forecast.
+
+      - name: year
+        description: Calendar year of the forecast period.
+
+      - name: month
+        description: Calendar month number of the forecast period.
+
+      - name: forecast_month
+        description: First day of the calendar month represented by the forecast record.
+        data_tests:
+          - not_null
+
+      - name: forecast_amount
+        description: Forecast amount in the currency identified by currency.
+
+      - name: currency
+        description: Currency code for the forecast amount.
+
+      - name: version_number
+        description: Version number of the forecast record.
+
+      - name: modified_at
+        description: Timestamp when the source forecast record was last modified.

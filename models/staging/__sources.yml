@@ -7,3 +7,4 @@ sources:
     tables:
       - name: dim_customer
       - name: forecast_checked
+      - name: forecast_raw
