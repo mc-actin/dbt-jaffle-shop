@@ -5,6 +5,9 @@ sources:
     database: forecast
     schema: marts
     tables:
+      - name: dim_company
       - name: dim_customer
       - name: forecast_checked
       - name: forecast_raw
+      - name: sales_with_plan
+

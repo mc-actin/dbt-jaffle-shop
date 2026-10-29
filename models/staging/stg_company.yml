@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_company
+    description: Company master data sourced from Forecast, with one row per company.
+    columns:
+      - name: mandant_id
+        description: Identifier of the source-system client or tenant that owns the company record.
+
+      - name: company_id
+        description: Business identifier assigned to the company in the source system.
+
+      - name: company_name
+        description: Business or legal name of the company.
+
+      - name: company_city
+        description: City associated with the company address.
+
+      - name: country_code
+        description: Country code associated with the company.
+
+      - name: country_label
+        description: Country name associated with the company.
+
+      - name: currency_code
+        description: Currency code used by the company for local reporting.
+
+      - name: company_group_id
+        description: Identifier of the corporate group to which the company belongs.
+
+      - name: company_address_id
+        description: Identifier of the company's address record.
+
+      - name: business_unit
+        description: Business unit associated with the company, when available.
