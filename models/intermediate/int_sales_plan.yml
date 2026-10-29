@@ -1,0 +1,170 @@
+version: 2
+
+models:
+  - name: int_sales_plan
+    description: Sales actuals and plan data enriched with total commercial margin amounts in local currency and euros, at calendar date, contract item, and scenario level.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - calendar_date
+              - company_id
+              - sales_organization_id
+              - contract_id
+              - item_id
+              - scenario
+    columns:
+      - name: fiscal_year
+        description: Fiscal year associated with the sales or plan record.
+
+      - name: fiscal_period
+        description: Fiscal accounting period within the fiscal year.
+
+      - name: calendar_date
+        description: Calendar date associated with the sales or plan record.
+        data_tests:
+          - not_null
+
+      - name: company_id
+        description: Identifier of the company associated with the record.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_company')
+                field: company_id
+
+      - name: sales_organization_id
+        description: Identifier of the sales organization associated with the record.
+        data_tests:
+          - not_null
+
+      - name: business_unit
+        description: Business unit responsible for the sales or plan record.
+
+      - name: bu_currency
+        description: Currency code used by the business unit.
+
+      - name: profit_center_id
+        description: Identifier of the profit center associated with the record.
+
+      - name: contract_id
+        description: Identifier of the commercial contract.
+        data_tests:
+          - not_null
+
+      - name: item_id
+        description: Identifier of the contract item.
+        data_tests:
+          - not_null
+
+      - name: billing_local_currency
+        description: Currency de la facture.
+
+      - name: local_currency
+        description: Local currency code used for monetary amounts ending in _lc.
+
+      - name: delivered_customer_id
+        description: Identifier of the customer receiving the delivery.
+
+      - name: delivered_internal_external
+        description: interne ou externe pour isoler les interco.
+
+      - name: invoiced_customer_id
+        description: Identifier of the customer receiving the invoice.
+
+      - name: invoiced_internal_external
+        description: Classification indicating whether the invoiced customer is internal or external.
+
+      - name: hedging_rate
+        description: Exchange rate used to hedge currency exposure for the record.
+
+      - name: contract_yield
+        description: Yield factor associated with the contract item.
+
+      - name: contract_status
+        description: Current commercial status of the contract.
+
+      - name: lta_or_spot
+        description: Classification indicating whether the contract is long-term or spot.
+
+      - name: incoterms_code
+        description: Incoterms code governing delivery responsibilities for the contract.
+
+      - name: activity
+        description: Commercial activity associated with the record.
+
+      - name: product_type
+        description: Product type associated with the contract item.
+
+      - name: material_group_name
+        description: Name of the material group associated with the product.
+
+      - name: specificity
+        description: Product specificity or processing classification.
+
+      - name: scenario
+        description: Reporting scenario represented by the record.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - Actual
+                  - Budget
+                  - F1
+                  - F2
+                  - LTP2027
+
+      - name: quantity
+        description: Sales or planned quantity for the record.
+        data_tests:
+          - not_null
+
+      - name: unit_selling_expenses_amount_lc
+        description: Selling expenses per unit in local currency.
+
+      - name: unit_selling_expenses_amount_eur
+        description: Selling expenses per unit in euros.
+
+      - name: unit_logistic_costs_amount_lc
+        description: Logistics costs per unit in local currency.
+
+      - name: unit_logistic_costs_amount_eur
+        description: Logistics costs per unit in euros.
+
+      - name: unit_structured_products_amount_lc
+        description: Structured products amount per unit in local currency.
+
+      - name: unit_structured_products_amount_eur
+        description: Structured products amount per unit in euros.
+
+      - name: unit_raw_materials_cost_amount_lc
+        description: Raw materials cost per unit in local currency.
+
+      - name: unit_raw_materials_cost_amount_eur
+        description: Raw materials cost per unit in euros.
+
+      - name: unit_commercial_margin_eur
+        description: Commercial margin per unit in euros.
+
+      - name: unit_commercial_margin_lc
+        description: Commercial margin per unit in local currency.
+
+      - name: unit_icmt_lc
+        description: ICMT amount per unit in local currency.
+
+      - name: unit_icmt_eur
+        description: ICMT amount per unit in euros.
+
+      - name: net_sales_lc
+        description: Net sales amount in local currency.
+
+      - name: net_sales_eur
+        description: Net sales amount in euros.
+
+      - name: commercial_margin_eur
+        description: Total commercial margin in euros, calculated as quantity multiplied by unit commercial margin in euros.
+
+      - name: commercial_margin_lc
+        description: Total commercial margin in local currency, calculated as quantity multiplied by unit commercial margin in local currency.
