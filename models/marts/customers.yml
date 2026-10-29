@@ -1,3 +1,110 @@
+version: 2
+
 models:
   - name: customers
-    description: Customer overview data mart, offering key details for each unique customer. One row per customer.
+    description: Customer master data for analytics, with one row per customer and sales organization combination.
+    columns:
+      - name: mandant_id
+        description: Identifier of the source-system client or tenant that owns the customer record.
+
+      - name: customer_id
+        description: Business identifier assigned to the customer in the source system.
+
+      - name: sales_organization_id
+        description: Identifier of the sales organization responsible for the customer relationship.
+
+      - name: phenix_customer_name
+        description: Customer display name used in the Phenix system.
+
+      - name: customer_company_id
+        description: Identifier of the company associated with the customer.
+
+      - name: customer_country_code
+        description: Country code associated with the customer.
+
+      - name: country_label
+        description: Country name associated with the customer.
+
+      - name: sales_district_label
+        description: Label of the sales district assigned to the customer.
+
+      - name: customer_name
+        description: Customer's business or trading name.
+
+      - name: customer_group_name
+        description: Name of the commercial group or category assigned to the customer.
+
+      - name: account_assignement_group_id
+        description: Identifier of the account assignment group from the source system.
+
+      - name: customer_account_assignment
+        description: Account assignment category applied to the customer, such as domestic or export.
+
+      - name: customer_type
+        description: Business type assigned to the customer.
+
+      - name: internal_external
+        description: Classification indicating whether the customer is internal or external.
+
+      - name: segmentation
+        description: Primary commercial segmentation assigned to the customer.
+
+      - name: segmentation_me
+        description: Additional customer segmentation used for management reporting.
+
+      - name: a_list
+        description: Boolean indicating whether the customer belongs to the A-list classification.
+
+      - name: cluster
+        description: Customer cluster assigned by the source system, when available.
+
+      - name: craft
+        description: Craft classification assigned to the customer, when available.
+
+      - name: customer_city
+        description: City in the customer's address.
+
+      - name: customer_postal_code
+        description: Postal code in the customer's address, stored as text to preserve formatting and leading zeros.
+
+      - name: customer_region_code
+        description: Region, state, or province code in the customer's address.
+
+      - name: customer_address_name
+        description: Name associated with the customer's address record.
+
+      - name: customer_address_id
+        description: Identifier of the customer's address record.
+
+      - name: customer_account_group_id
+        description: Identifier of the customer account group.
+
+      - name: personnel_id
+        description: Identifier of the personnel record assigned to the customer.
+
+      - name: customer_payment_key
+        description: Payment terms or payment method key assigned to the customer.
+
+      - name: customer_bank_code
+        description: Bank code associated with the customer.
+
+      - name: customer_group_id
+        description: Identifier of the customer group.
+
+      - name: incoterms_code
+        description: Incoterms code governing delivery responsibilities for the customer relationship.
+
+      - name: incoterms_name
+        description: Full name of the Incoterms rule associated with the code.
+
+      - name: tax_number
+        description: Primary tax identification number recorded for the customer.
+
+      - name: tax_number_2
+        description: Secondary tax identification number recorded for the customer, when available.
+
+      - name: vat_registration_number
+        description: VAT registration number recorded for the customer.
+
+      - name: is_active
+        description: Boolean indicating whether the customer record is active.
