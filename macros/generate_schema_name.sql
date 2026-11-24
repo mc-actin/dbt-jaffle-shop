@@ -2,14 +2,6 @@
 
     {% set default_schema = target.schema %}
 
-    {% do log(
-    "SCHEMA DEBUG | model=" ~ node.name
-    ~ " | target.name=" ~ target.name
-    ~ " | target.schema=" ~ target.schema
-    ~ " | custom_schema_name=" ~ custom_schema_name,
-    info=True
-    ) %}
-
     {# seeds go in a global `raw` schema #}
     {% if node.resource_type == 'seed' %}
         {{ custom_schema_name | trim }}
@@ -21,7 +13,7 @@
 
     {# specified custom schema names go to the schema name prepended with the the default schema name in prod (as this is an example project we want the schemas clearly labeled) #}
     {% elif target.name == 'prod' %}
-        {{ default_schema }}_{{ custom_schema_name | trim }}
+        {{ custom_schema_name | trim }}
 
     {# specified custom schemas go to the default target schema for non-prod targets #}
     {% else %}

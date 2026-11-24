@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: demo
+    database: forecast
+    schema: demo
+    tables:
+      - name: dim_company
+      - name: dim_customer
+      - name: sales_with_plan
+
+  - name: forecast
+    database: forecast
+    schema: marts
+    tables:
+      - name: forecast_checked
+      - name: forecast_raw

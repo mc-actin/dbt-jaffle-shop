@@ -34,4 +34,4 @@ select
     tax_number_2,
     vat_registration_number,
     is_active
-from {{ source('forecast', 'dim_customer') }}
+from {{ source('demo', 'dim_customer') }}
