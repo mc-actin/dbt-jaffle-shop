@@ -40,4 +40,4 @@ select
     unit_icmt_eur,
     net_sales_lc,
     net_sales_eur
-from {{ source('forecast', 'sales_with_plan') }}
+from {{ source('demo', 'sales_with_plan') }}

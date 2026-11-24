@@ -9,4 +9,4 @@ select
     company_group_id,
     company_address_id,
     business_unit
-from {{ source('forecast', 'dim_company') }}
+from {{ source('demo', 'dim_company') }}

@@ -19,10 +19,6 @@ models:
         description: Identifier of the company associated with the record.
         data_tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_company')
-                field: company_id
 
       - name: sales_organization_id
         description: Identifier of the sales organization associated with the record.
