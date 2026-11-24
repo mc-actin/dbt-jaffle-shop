@@ -2,6 +2,14 @@
 
     {% set default_schema = target.schema %}
 
+    {% do log(
+    "SCHEMA DEBUG | model=" ~ node.name
+    ~ " | target.name=" ~ target.name
+    ~ " | target.schema=" ~ target.schema
+    ~ " | custom_schema_name=" ~ custom_schema_name,
+    info=True
+    ) %}
+
     {# seeds go in a global `raw` schema #}
     {% if node.resource_type == 'seed' %}
         {{ custom_schema_name | trim }}
